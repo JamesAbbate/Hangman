@@ -10,6 +10,7 @@ package console;
 import hangman.Player;
 import hangman.Game;
 import java.io.Console;
+import java.util.Scanner;
 
 /**
  * Manage a player playing with the terminal.
@@ -80,7 +81,10 @@ public class LocalPlayer extends Player {
     public char chooseLetter(Game game) {
         for (;;) {
             System.out.print("Inserisci una lettera: ");
-            String line = console.readLine().trim();
+            Scanner input = new Scanner(System.in);
+            String line;
+            line = input.nextLine();
+            //String line = console.readLine().trim();
             if (line.length() == 1 && Character.isLetter(line.charAt(0))) {
                 return line.charAt(0);
             } else {
